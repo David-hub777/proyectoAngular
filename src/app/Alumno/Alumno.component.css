@@ -1,14 +1,35 @@
 /* Estilos para la tabla */
+h1{
+    color: olive;
+}
+
 table {
-    width: 100%;
+    width: 40%;
     border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: Algerian, Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: large;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: navy #fff;
+    margin-left: 10px;
+    padding: 8px;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid yellowgreen;
+    border: 1px solid red;
 }
+th:hover, td :hover{
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
 
 /* Estilos para las filas impares */
 tr:nth-child(odd) {
@@ -18,9 +39,11 @@ tr:nth-child(odd) {
 /* Estilos para las filas al pasar el cursor */
 tr:hover {
     background-color: #ddd;
+    border: 1px solid #ddd;
 }
 
 /* Estilos para la primera columna */
 td:first-child {
     font-weight: bold;
 }
+

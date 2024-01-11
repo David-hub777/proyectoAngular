@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+
+.negrita{
+    font-weight: bold;
+}
+.italica{
+    font-style: italic;
+}
+.color{
+    color: red;
+}
+.subrayado{
+    text-decoration: underline;
+}
+.tachado{
+    text-decoration: line-through;
+}
+.centro{
+    text-align: center;
+}
+.derecha{
+    text-align: right;
+}
+.izquierda{
+    text-align: left;
+}
+.justificado{
+    text-align: justify;
+}
+.cursiva{
+    font-style: italic;
+}
+.subindice{
+    vertical-align: sub;
+}
+.superindice{
+    vertical-align: super;
+}
+.mayusculas{
+    text-transform: uppercase;
+}
+.minusculas{
+    text-transform: lowercase;
+}
+.capital{
+    text-transform: capitalize;
+}
+.oculto{
+    visibility: hidden;
+}
+.mayor{
+    font-size: larger;
+}
+.menor{
+    font-size: smaller;
+}
+.anchura{
+    width: 100px;
+}
+.altura{
+    height: 100px;
+}
+.borde{
+    border: 1px solid black;
+}
+.borde-redondo{
+    border-radius: 5px;
+}
+.sombra{
+    box-shadow: 10px 10px 5px grey;
+}
+.fondo{
+    background-color: lightgrey;
+}
+.imagen{
+    background-image: url("https://www.w3schools.com/cssref/img_tree.gif");
+    background-repeat: no-repeat;
+    background-size: 100px 100px;
+}
+
+
+
+
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    color: navy;
+    font-family: algerian, arial, helvetica, sans-serif;
+    font-size: 250%;
+}
+
+h2 {
+    color: navy;
+    font-family: algerian, arial, helvetica, sans-serif;
+    font-size: 200%;
+}
+
+h3 {
+    color: navy;
+    font-family: algerian, arial, helvetica, sans-serif;
+    font-size: 150%;
+}
+
+h4 {
+    color: navy;
+    font-family: algerian, arial, helvetica, sans-serif;
+    font-size: 100%;
+}
+
+h5 {
+    color: navy;
+    font-family: algerian, arial, helvetica, sans-serif;
+    font-size: 75%;
+}
+
+
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+
+
+
