@@ -14,5 +14,13 @@ export class AlumnoComponent {
     apellidos: string = 'Delgado';
     direccion: string = 'Segovia City';
     edad: number = 55;
-    
+    visibles: boolean = true;
+
+
+    alternarVisibles():void {
+        this.visibles = !this.visibles;
+    }
+
+
+
 }
