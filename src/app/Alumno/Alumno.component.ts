@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'el-alumno',
     standalone: true,
-    // imports: [CommonModule, RouterOutlet],
+    //imports: [CommonModule, RouterOutlet],
     templateUrl: './Alumno.component.html',
     styleUrls: ['./Alumno.component.css']
     // styleUrl: './app.component.css'

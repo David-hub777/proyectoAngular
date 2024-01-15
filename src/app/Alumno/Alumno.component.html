@@ -1,9 +1,9 @@
-<table style="margin-left: 25px;">
+<table style="margin-left: 25px; min-height: 205px;">
     <thead (click)="alternarVisibles()">
         <tr>
             <th attr.colspan={{columnas}} style="text-align: center;" >
                 <!-- [attr.colspan] = "columnas" -->
-                Datos del alumno
+                Datos del alumno {{visibles ? " " : nombre }} {{visibles ? " " : apellidos }}
             </th>
         </tr>
     </thead>
@@ -27,4 +27,5 @@
         </tr>
     </tbody>
 </table>
+<button style="margin:10px" (click)="alternarVisibles()" >{{visibles ? "Ocultar" :"Mostrar"}}Detalles</button>
 <h1 style="margin-left: 20px; margin-top: 50px;">FIN</h1>
