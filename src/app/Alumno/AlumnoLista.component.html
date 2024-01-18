@@ -1,0 +1,23 @@
+<table style="margin-left: 25px; min-height: 70px;min-width: 888px;">
+    <thead (click)="alternarVisibles()" >
+        <tr>
+            <th style="text-align: center;" >Nombre</th>
+            <th style="text-align: center;" >Apellido</th>
+            <th style="text-align: center;" >Dirección</th>
+            <th style="text-align: center;" >F. de Nac.</th>
+            <th style="text-align: center;" >F. de Nac.</th>
+            <th style="text-align: center;" >OXES</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let alumno of alumnos" [style.display]="visibles ? '' : 'none'">
+        <tr>
+            <td>{{ alumno.nombre | uppercase }}</td>
+            <td>{{ alumno.apellidos | uppercase }}</td>
+            <td>{{ alumno.direccion }}</td>
+            <td>{{ alumno.fnac | date }}</td>
+            <td>{{ alumno.fnac | date:'dd/MM/y' }}</td>
+            <td>{{ alumno.sexo }}</td>
+        </tr>
+    </tbody>
+</table>
+<h1 style="margin-left: 20px; margin-top: 50px;">FIN</h1>

@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoComponent } from './Alumno/Alumno.component';
+import { AlumnoComponent as AlumnoListaComponent } from './Alumno/AlumnoLista.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterOutlet, AlumnoComponent],
+    imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent],
     template: `
         <div class="container">
             <h1 style="margin-left: 10px;">
@@ -37,6 +38,8 @@ import { AlumnoComponent } from './Alumno/Alumno.component';
                 height="50"
                 style="margin-left: 20px;margin-bottom: 20px;"
             />
+            <lista-alumno></lista-alumno>
+            <br/>
             <el-alumno></el-alumno>
 			<button [disabled]="desactivado" style="margin-left: 90px;">Botón</button>
 			<!-- NO RECONOCE LOS BOOLEANOS ENTRE LLAVES -->
