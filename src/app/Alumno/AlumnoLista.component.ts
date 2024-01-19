@@ -1,14 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AlumnoTitleReferencePipe } from './AlumnoTitelReference.pipe';
+
 
 @Component({
     selector: 'lista-alumno',
     standalone: true,
-    imports: [CommonModule, RouterOutlet],
+    imports: [CommonModule, RouterOutlet , AlumnoTitleReferencePipe],
     templateUrl: 'AlumnoLista.component.html',
-    styleUrls: ['./AlumnoLista.component.css']
+    styleUrls: ['./AlumnoLista.component.css'],
 })
+
+
+
 export class AlumnoComponent {
     vector_any: any[] = [1,2,3,4,5,6,7,8,9,10];
     vector_string: string[] = ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];

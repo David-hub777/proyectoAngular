@@ -11,7 +11,7 @@
     </thead>
     <tbody *ngFor="let alumno of alumnos" [style.display]="visibles ? '' : 'none'">
         <tr>
-            <td>{{ alumno.nombre | uppercase }}</td>
+            <td>{{ alumno.nombre | uppercase | AlumnoTitleReference:alumno.sexo }}</td>
             <td>{{ alumno.apellidos | uppercase }}</td>
             <td>{{ alumno.direccion }}</td>
             <td>{{ alumno.fnac | date }}</td>
