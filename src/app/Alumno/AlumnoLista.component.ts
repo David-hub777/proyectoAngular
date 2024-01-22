@@ -2,19 +2,20 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoTitleReferencePipe } from './AlumnoTitelReference.pipe';
+import { AlumnosCountComponent } from './AlumnosCount.component';
 
 
 @Component({
     selector: 'lista-alumno',
     standalone: true,
-    imports: [CommonModule, RouterOutlet , AlumnoTitleReferencePipe],
+    imports: [CommonModule, RouterOutlet , AlumnoTitleReferencePipe , AlumnosCountComponent],
     templateUrl: 'AlumnoLista.component.html',
     styleUrls: ['./AlumnoLista.component.css'],
 })
 
 
 
-export class AlumnoComponent {
+export class AlumnoListaComponent {
     vector_any: any[] = [1,2,3,4,5,6,7,8,9,10];
     vector_string: string[] = ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];
     vector_number: number[] = [1,2,3,4,5,6,7,8,9,10];
@@ -28,13 +29,43 @@ export class AlumnoComponent {
         { nombre: 'Shalltear', apellidos: 'Bloodfallen', direccion: 'Gran Tumba de Nazarick', fnac: '12/24/1800', sexo: 'Femenino' },
         { nombre: 'Demiurge', apellidos: 'Creations', direccion: 'Gran Tumba de Nazarick', fnac: '6/6/0500', sexo: 'Masculino' }
     ];
+    //GGGGGGGGGGEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTT
+    // @Input()
+    getTodos(): number {
+        return this.alumnos.length;
+    }
+    getHombres(): number {
+        let count = 0;
+        for (const alumno of this.alumnos) {
+            if (alumno.sexo === 'Masculino') {
+                count++;
+            }
+        }
+        return count;
+    }
+    getNumHombres(): number {
+        return this.alumnos.filter(alumno => alumno.sexo === 'Masculino').length;
+    }
+    getMujeres(): number {
+        let count = 0;
+        for (const alumno of this.alumnos) {
+            if (alumno.sexo === 'Femenino') {
+                count++;
+            }
+        }
+        return count;
+    }
+    getNumMujeres(): number {
+        return this.alumnos.filter(alumno => alumno.sexo === 'Femenino').length;
+    }
+    //GGGGGGGGGGEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTT
+
+
+
+
+
     visibles = true;
     alternarVisibles():void {
         this.visibles = !this.visibles;
     }
-
-
-
-
-
 }

@@ -1,4 +1,11 @@
-<table style="margin-left: 25px; min-height: 70px;min-width: 888px;">
+
+<cuantos-alumnos 
+        [todos]="this.getTodos()" 
+        [hombres]="this.getNumHombres()" 
+        [mujeres]="this.getMujeres()"
+></cuantos-alumnos>
+<h1>ALUMNO LISTA</h1>
+<table style="margin-left: 25px; min-height: 70px;min-width: 950px;">
     <thead (click)="alternarVisibles()" >
         <tr>
             <th style="text-align: center;" >Nombre</th>
@@ -15,9 +22,35 @@
             <td>{{ alumno.apellidos | uppercase }}</td>
             <td>{{ alumno.direccion }}</td>
             <td>{{ alumno.fnac | date }}</td>
-            <td>{{ alumno.fnac | date:'dd/MM/y' }}</td>
+            <td>{{ alumno.fnac | date:'dd/MMM/y' }}</td>
             <td>{{ alumno.sexo }}</td>
+        </tr>
+        <tr *ngIf="alumnos.length==0">
+            <td colspan="6">NO HAY ALUMNOS</td>
         </tr>
     </tbody>
 </table>
-<h1 style="margin-left: 20px; margin-top: 50px;">FIN</h1>
+<br /><br />
+    <!-- La de Agustin :                     **************************************** -->
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: center;" >Nombre</th>
+            <th style="text-align: center;" >Dirección</th>
+            <th style="text-align: center;" >F. de Nac.</th>
+            <th style="text-align: center;" >OXES</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let alumno of alumnos">
+        <tr *ngIf="!alumnos || alumnos.length==8" >
+            <td>{{ alumno.nombre | uppercase | AlumnoTitleReference:alumno.sexo }}</td>
+            <td>{{ alumno.direccion }}</td>
+            <td>{{ alumno.fnac | date:'dd/MMM/y' }}</td>
+            <td>{{ alumno.sexo }}</td>
+        </tr>
+        <tr *ngIf="!alumnos || alumnos.length==0" >
+            <td colspan="4">NO HAY ALUMNOS</td>
+        </tr>
+    </tbody>
+</table>
+<h1>FIN LISTA</h1>
