@@ -1,9 +1,9 @@
 /* Estilos para la tabla */
 
 .radioClass{
-    color: springgreen;
+    color: springgreen;/* Agustin no puso este color */
     font-size: large;
-    font-family:  Algerian, Arial, Helvetica, sans-serif;
+    font-family:  Algerian, Arial, Helvetica, sans-serif;/* Agustin no puso el estilo Algerian */
 }
 
 .InicioClass{

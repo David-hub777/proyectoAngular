@@ -1,9 +1,14 @@
-
+<!-- LAS VARIABLES DE ALUMNOS.COUNT.COMPONENT.TS TODOS,HOMBRES,MUJERES 
+    SE CARGAN CON LOS METODOS DE ALUMNO.LISTA.COMPONENT.TS -->
 <cuantos-alumnos 
         [todos]="this.getTodos()" 
         [hombres]="this.getNumHombres()" 
         [mujeres]="this.getMujeres()"
-></cuantos-alumnos>
+        (GlobalopcionElegida)="actualizarSeleccion($event)"
+        ></cuantos-alumnos>
+        <!-- (GlobalopcionElegida)="actualizarSeleccion($event)"
+        Explicación -->
+<br/>
 <h1>ALUMNO LISTA</h1>
 <table style="margin-left: 25px; min-height: 70px;min-width: 950px;">
     <thead (click)="alternarVisibles()" >
@@ -17,7 +22,7 @@
         </tr>
     </thead>
     <tbody *ngFor="let alumno of alumnos" [style.display]="visibles ? '' : 'none'">
-        <tr>
+        <tr *ngIf="(!alumnos || alumnos.length==8) && ( alumno.sexo==seleccion || seleccion == 'Todos')">
             <td>{{ alumno.nombre | uppercase | AlumnoTitleReference:alumno.sexo }}</td>
             <td>{{ alumno.apellidos | uppercase }}</td>
             <td>{{ alumno.direccion }}</td>
@@ -41,13 +46,15 @@
             <th style="text-align: center;" >OXES</th>
         </tr>
     </thead>
-    <tbody *ngFor="let alumno of alumnos">
-        <tr *ngIf="!alumnos || alumnos.length==8" >
-            <td>{{ alumno.nombre | uppercase | AlumnoTitleReference:alumno.sexo }}</td>
-            <td>{{ alumno.direccion }}</td>
-            <td>{{ alumno.fnac | date:'dd/MMM/y' }}</td>
-            <td>{{ alumno.sexo }}</td>
-        </tr>
+    <tbody>
+        <ng-container *ngFor="let alumno of alumnos">
+            <tr *ngIf="alumno.sexo==seleccion || seleccion == 'Todos'" >
+                <td>{{ alumno.nombre | uppercase | AlumnoTitleReference:alumno.sexo }}</td>
+                <td>{{ alumno.direccion }}</td>
+                <td>{{ alumno.fnac | date:'dd/MMM/y' }}</td>
+                <td>{{ alumno.sexo }}</td>
+            </tr>
+        </ng-container>
         <tr *ngIf="!alumnos || alumnos.length==0" >
             <td colspan="4">NO HAY ALUMNOS</td>
         </tr>
