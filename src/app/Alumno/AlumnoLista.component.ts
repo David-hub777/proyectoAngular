@@ -28,9 +28,10 @@ export class AlumnoListaComponent implements OnInit {
     vector_string: string[] = ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];
     vector_number: number[] = [1,2,3,4,5,6,7,8,9,10];
     // VECTOR DE AGUSTIN
-    alumnos: Alumno[] = [];
+    alumnos: Alumno[] ;
     //CONSTRUCTOR - DE AGUSTIN
     constructor(public losAlumnos: AlumnoService){
+        this.alumnos = []; // Es necesario inicializar el atributo alumnos
         // this.alumnos = losAlumnos.getAlumnos(); // Se inician los atributos en el init  -> ngOnInit(): void {
     }
 
