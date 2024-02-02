@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AlumnoTitleReferencePipe } from './AlumnoTitelReference.pipe';
 import { AlumnosCountComponent } from './AlumnosCount.component';
@@ -22,20 +22,22 @@ import { AlumnoService } from './AlumnoService';
 
 
 
-export class AlumnoListaComponent {
+export class AlumnoListaComponent implements OnInit {
     // VECTORES BY COPILOT
     vector_any: any[] = [1,2,3,4,5,6,7,8,9,10];
     vector_string: string[] = ['uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez'];
     vector_number: number[] = [1,2,3,4,5,6,7,8,9,10];
     // VECTOR DE AGUSTIN
-    alumnos: Alumno[] ;
+    alumnos: Alumno[] = [];
     //CONSTRUCTOR - DE AGUSTIN
-    constructor(){
-        const alumnoService = new AlumnoService();
-        this.alumnos = alumnoService.getAlumnos();
+    constructor(public losAlumnos: AlumnoService){
+        // this.alumnos = losAlumnos.getAlumnos(); // Se inician los atributos en el init  -> ngOnInit(): void {
     }
 
-
+    ngOnInit(): void {
+        const alumnoService = new AlumnoService(); // Copilot Methods
+        this.alumnos = this.losAlumnos.getAlumnos(); // this obligatorios !!!!!!!!!!!!! (al menos este:"this.losAlumnos.getAlumnos")
+    }
 
     //GGGGGGGGGGEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTT
     //Los metodos getNum SON LOS DE AGUSTIN
