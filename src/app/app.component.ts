@@ -4,11 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { AlumnoComponent } from './Alumno/Alumno.component';
 import { AlumnoListaComponent as AlumnoListaComponent } from './Alumno/AlumnoLista.component';
 import { AlumnosCountComponent as a } from './Alumno/AlumnosCount.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent , a],
+    imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent , a, HttpClientModule],
     template: `
         <div class="container">
             <h1 style="margin-left: 10px;">

@@ -5,6 +5,8 @@ import { AlumnoTitleReferencePipe } from './AlumnoTitelReference.pipe';
 import { AlumnosCountComponent } from './AlumnosCount.component';
 import { IAlumno , Alumno } from './Alumno';
 import { AlumnoService } from './AlumnoService';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
 // import { getAlumnos } from './AlumnoService';
 
 
@@ -29,16 +31,34 @@ export class AlumnoListaComponent implements OnInit {
     vector_number: number[] = [1,2,3,4,5,6,7,8,9,10];
     // VECTOR DE AGUSTIN
     alumnos: Alumno[] ;
+
     //CONSTRUCTOR - DE AGUSTIN
     constructor(public losAlumnos: AlumnoService){
         this.alumnos = []; // Es necesario inicializar el atributo alumnos
         // this.alumnos = losAlumnos.getAlumnos(); // Se inician los atributos en el init  -> ngOnInit(): void {
     }
 
+    // // METODO INIT
     ngOnInit(): void {
-        const alumnoService = new AlumnoService(); // Copilot Methods
-        this.alumnos = this.losAlumnos.getAlumnos(); // this obligatorios !!!!!!!!!!!!! (al menos este:"this.losAlumnos.getAlumnos")
+        // // const alumnoService = new AlumnoService(); // Copilot Methods
+        // this.alumnos = this.losAlumnos.getAlumnos(); // this obligatorios !!!!!!!!!!!!! (al menos este:"this.losAlumnos.getAlumnos")
+        this.losAlumnos.getAlumnosFromAPI().subscribe((datosAlumnos) => this.alumnos = datosAlumnos); 
+        // Se inician los atributos con el servicio
     }
+
+    // ngOnInit(): void {
+    //     // Utiliza el servicio para obtener los alumnos desde la API
+    //     const alumnoService = new AlumnoService();
+    //     this.alumnoService.getAlumnosFromAPI().subscribe(
+    //         (data: Alumno[]) => {
+    //             this.alumnos = data;
+    //         },
+    //         (error: Alumno[]) => {
+    //             console.error('Error al obtener datos de la API', error);
+    //         }
+    //     );
+    // }
+
 
     //GGGGGGGGGGEEEEEEEEEEEEETTTTTTTTTTTTTTTTTTT
     //Los metodos getNum SON LOS DE AGUSTIN
