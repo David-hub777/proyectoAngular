@@ -1,8 +1,9 @@
 import { Injectable, NgModule } from '@angular/core';
 import { Alumno } from './Alumno';
-import { HTTP_INTERCEPTORS, HttpClient, HttpHandler, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClientModule } from '@angular/common/http';
+import { withFetch } from '@angular/common/http';
 import {  HttpFeatureKind } from '@angular/common/http';
 import { HttpFeature } from '@angular/common/http';
 
@@ -12,8 +13,9 @@ import { HttpFeature } from '@angular/common/http';
 		HttpClient,
 		{
 			provide: HTTP_INTERCEPTORS,
-			useFactory: withFetch,
-			deps: [HttpHandler],
+			useValue: withFetch,
+			// useFactory: (httpHandler: HttpClient) => withFetch(httpHandler),
+			deps: [HttpHandler,HttpClient],
 			multi: true,
 		},
 	],
@@ -30,7 +32,8 @@ export class AlumnoService {
 
 	// Método para obtener datos de la API
 	getAlumnosFromAPI(): Observable<Alumno[]> {
-		return this.http.get<Alumno[]>(this.apiUrl);
+		const headers = new HttpHeaders().set('X-Skip-Cert-Check', 'true');
+		return this.http.get<Alumno[]>(this.apiUrl, { headers });
 	}
 
 	ngOnInit(): void {

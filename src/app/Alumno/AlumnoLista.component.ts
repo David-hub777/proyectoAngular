@@ -5,7 +5,7 @@ import { AlumnoTitleReferencePipe } from './AlumnoTitelReference.pipe';
 import { AlumnosCountComponent } from './AlumnosCount.component';
 import { IAlumno , Alumno } from './Alumno';
 import { AlumnoService } from './AlumnoService';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+// import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 // import { getAlumnos } from './AlumnoService';
 
