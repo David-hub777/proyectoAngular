@@ -12,6 +12,26 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     imports: [CommonModule, RouterOutlet, AlumnoComponent, AlumnoListaComponent , a, HttpClientModule],
     template: `
+        
+        <div class="mb-3">
+            <ul class="nav nav-tabs justify-content-center bg-primary center">
+                <li class="nav-item">
+                    <a class="nav-link bg-warning" href="Alumnos"  aria-current="page">Alumnos</a
+                    >
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link bg-danger" href="Profesores" >Profesores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="App">Link</a>
+                </li>
+            </ul>
+            
+        </div>
+        <router-outlet></router-outlet>
+
+        <br/><br/><br/><br/><br/>
+        <h1>COMIENZO DEL APP 0</h1>
         <div class="container">
             <h1 style="margin-left: 10px;">
                 {{ encabezado }}{{ getNombreCompleto() }}
@@ -65,6 +85,7 @@ import { HttpClientModule } from '@angular/common/http';
             <br/><button style="margin-left:212px;padding: 10px; border-radius: 25px;" class="color negrita italica" (click)="onClick()">Boton7</button>
             <br/><br/><br/><br/>
         </div>
+        <h1>FFFFFFIIIIIIIIIINNNNNNN DEL APP 0</h1>
     `,
     //templateUrl: './app.component.html',
     styleUrl: './app.component.css',
